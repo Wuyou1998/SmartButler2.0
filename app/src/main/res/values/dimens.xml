@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_page_12sp">12sp</dimen>
+    <dimen name="login_page_edt_height">44dp</dimen>
+    <dimen name="login_page_edt_padding">15dp</dimen>
+</resources>

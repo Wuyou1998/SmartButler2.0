@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        tools:text="笔记本电脑是一直插着电源好，还是每次等电源没电再充电好？"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/iv_pic1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:src="@mipmap/tupian"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/iv_pic2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:src="@mipmap/tupian"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/iv_pic3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:src="@mipmap/tupian"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            tools:text="太平洋电脑网"/>
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/baseline_close_black_18dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+</LinearLayout>
