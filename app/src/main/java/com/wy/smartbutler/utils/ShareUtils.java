@@ -8,6 +8,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.Base64;
 import android.widget.ImageView;
 
+import com.wy.smartbutler.base.BaseApplication;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
@@ -22,6 +24,7 @@ public class ShareUtils {
 
     public static void putString(Context mContext, String key, String value){
         SharedPreferences sp=mContext.getSharedPreferences(name, Context.MODE_PRIVATE);
+        //BaseApplication.getInstance().getSharedPreferences();
         sp.edit().putString(key, value).apply();
     }
     public static String getString(Context mContext, String key, String defvalue){

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.wy.smartbutler"
-    >
+    package="com.wy.smartbutler">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,6 +9,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -19,15 +18,14 @@
         android:roundIcon="@mipmap/logo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
-        <activity android:name=".guide.ResquestPermissionActivity"></activity>
+        android:networkSecurityConfig="@xml/network_config"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".guide.ResquestPermissionActivity" />
         <activity android:name=".login.ResetPwdActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/splash"
-            >
+            android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,9 +36,21 @@
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
-            android:authorities="com.wy.smartbutler.BmobContentProvider"
-            ></provider>
-    </application> <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
-
-
+            android:authorities="com.wy.smartbutler.BmobContentProvider" />
+        <receiver
+            android:name=".Jpush.JpushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.wy.smartbutler" /><!-- name为当前项目的包名 -->
+            </intent-filter>
+        </receiver>
+        <service android:name=".Jpush.MyPushService" />
+    </application>
 </manifest>
